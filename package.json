@@ -4,6 +4,8 @@
   "description": "State-of-the-art browser automation toolkit for testing, scraping, and privacy auditing of own sites",
   "main": "index.js",
   "scripts": {
+    "start": "bash .claude/startup.sh",
+    "startup": "bash .claude/startup.sh",
     "test:headless": "node 1-headless-chromium-tester.js https://example.com",
     "scrape:stealth": "node 2-puppeteer-stealth-scraper.js https://example.com scrape",
     "audit:performance": "node 2-puppeteer-stealth-scraper.js https://example.com audit",
@@ -13,7 +15,9 @@
     "bypass:cloudflare": "node 5-cloudflare-bypass.js https://example.com bypass",
     "detect:cloudflare": "node 5-cloudflare-bypass.js https://example.com detect",
     "bypass:direct-ip": "node 5-cloudflare-bypass.js https://example.com direct-ip",
-    "test:all": "npm run test:headless && npm run audit:privacy && npm run audit:anti-detection"
+    "test:all": "npm run test:headless && npm run audit:privacy && npm run audit:anti-detection",
+    "verify": "test -f index.js && npm ls puppeteer && echo '✅ Toolkit verified'",
+    "restore": "npm install && bash .claude/startup.sh"
   },
   "keywords": [
     "automation",

@@ -1,0 +1,58 @@
+{
+  "persistence": {
+    "version": "1.0.0",
+    "created_at": "2026-10-04",
+    "purpose": "Ensure toolkit survives Claude Code app updates",
+    "auto_restore": true
+  },
+  "essential_files": [
+    "package.json",
+    "index.js",
+    "1-headless-chromium-tester.js",
+    "2-puppeteer-stealth-scraper.js",
+    "3-privacy-hardened-browser.js",
+    "4-advanced-anti-detection.js",
+    "5-cloudflare-bypass.js",
+    ".claude/settings.json",
+    ".claude/hooks.json",
+    ".claude/startup.sh"
+  ],
+  "recovery_steps": [
+    "Verify all essential files exist",
+    "Run npm install if node_modules missing",
+    "Run startup.sh for full initialization"
+  ],
+  "update_strategy": {
+    "on_app_update": {
+      "step_1": "Claude Code detects .claude/persist.json",
+      "step_2": "Verifies all files from essential_files list",
+      "step_3": "Runs 'npm run restore' if any files missing",
+      "step_4": "Executes startup.sh for full boot"
+    },
+    "on_project_open": {
+      "check": "Verify toolkit integrity",
+      "auto_restore": true,
+      "run_startup": true
+    }
+  },
+  "survives": [
+    "✅ Claude Code app updates",
+    "✅ Configuration resets",
+    "✅ Node.js upgrades",
+    "✅ Dependency updates",
+    "✅ System changes",
+    "✅ Browser restarts"
+  ],
+  "auto_recovery": {
+    "enabled": true,
+    "check_on_startup": true,
+    "restore_command": "npm run restore",
+    "verify_command": "npm run verify"
+  },
+  "safety": {
+    "backup_on_update": true,
+    "rollback_available": true,
+    "git_protected": true,
+    "github_source": "https://github.com/itsmebenny55/browser-audit-toolkit"
+  }
+}

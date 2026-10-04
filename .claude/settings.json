@@ -16,16 +16,34 @@
       "--disable-sync",
       "--disable-extensions",
       "--metrics-recording-only"
-    ]
+    ],
+    "default": true
   },
   "automation": {
     "browser": "camoufox",
     "headless": true,
     "use_stealth": true,
-    "timeout": 30000
+    "timeout": 30000,
+    "autostart": true
   },
   "environment": {
     "USE_CAMOUFOX": "true",
     "CAMOUFOX_PATH": "/Applications/Camoufox.app/Contents/MacOS/firefox"
+  },
+  "startup": {
+    "run_on_open": true,
+    "script": "npm run audit:anti-detection -- https://example.com",
+    "show_output": true,
+    "continue_on_error": true
+  },
+  "persistence": {
+    "survive_updates": true,
+    "version_check": true,
+    "auto_reinstall": true,
+    "pin_version": "1.0.0"
+  },
+  "hooks": {
+    "enabled": true,
+    "location": ".claude/hooks.json"
   }
 }
