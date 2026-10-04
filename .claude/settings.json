@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "bash": ["allow", "chromium", "browser", "camoufox", "puppeteer", "npm"],
+    "read": ["allow"],
+    "write": ["allow"]
+  },
+  "browser": {
+    "preference": "camoufox",
+    "executable_path": "/Applications/Camoufox.app/Contents/MacOS/firefox",
+    "args": [
+      "--disable-blink-features=AutomationControlled",
+      "--disable-dev-shm-usage",
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-gpu",
+      "--disable-sync",
+      "--disable-extensions",
+      "--metrics-recording-only"
+    ]
+  },
+  "automation": {
+    "browser": "camoufox",
+    "headless": true,
+    "use_stealth": true,
+    "timeout": 30000
+  },
+  "environment": {
+    "USE_CAMOUFOX": "true",
+    "CAMOUFOX_PATH": "/Applications/Camoufox.app/Contents/MacOS/firefox"
+  }
+}
