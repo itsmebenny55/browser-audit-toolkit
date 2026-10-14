@@ -17,7 +17,23 @@
     "bypass:direct-ip": "node 5-cloudflare-bypass.js https://example.com direct-ip",
     "test:all": "npm run test:headless && npm run audit:privacy && npm run audit:anti-detection",
     "verify": "test -f index.js && npm ls puppeteer && echo '✅ Toolkit verified'",
-    "restore": "npm install && bash .claude/startup.sh"
+    "restore": "npm install && bash .claude/startup.sh",
+    "skill": "node .claude/skills/audit-skill.js"
+  },
+  "claudeCodeSkills": {
+    "audit": {
+      "description": "Browser automation audits and testing",
+      "commands": [
+        "audit-performance",
+        "audit-privacy",
+        "audit-anti-detection",
+        "bypass-cloudflare",
+        "detect-cloudflare",
+        "audit-comprehensive",
+        "toolkit-verify",
+        "toolkit-restore"
+      ]
+    }
   },
   "keywords": [
     "automation",
